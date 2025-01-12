@@ -34,4 +34,4 @@ function changeExtensionRecursive($dir, $oldExt, $newExt) {
 }
 
 // Panggil fungsi untuk mengganti ekstensi .phpt ke .txt secara rekursif
-changeExtensionRecursive($directory, 'phpt', 'txt');
+changeExtensionRecursive($directory, 'txt', 'phpt');
