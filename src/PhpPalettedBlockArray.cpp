@@ -5,7 +5,7 @@
 #include "ZendUtil.h"
 
 #include "PhpPalettedBlockArrayObj.h"
-#include "stubs/pocketmine/world/format/PalettedBlockArray_arginfo.h"
+#include "stubs/watermossmc/world/format/PalettedBlockArray_arginfo.h"
 
 extern "C" {
 #include "php.h"
@@ -226,7 +226,7 @@ end:
 
 
 /* PHP-land PalettedBlockArray methods */
-#define PALETTED_BLOCK_ARRAY_METHOD(name) PHP_METHOD(pocketmine_world_format_PalettedBlockArray, name)
+#define PALETTED_BLOCK_ARRAY_METHOD(name) PHP_METHOD(watermossmc_world_format_PalettedBlockArray, name)
 
 PALETTED_BLOCK_ARRAY_METHOD(__construct) {
 	zend_long fillEntry;
@@ -377,7 +377,7 @@ void register_paletted_block_array_class() {
 	paletted_block_array_handlers.clone_obj = paletted_block_array_clone;
 
 	zend_class_entry ce;
-	INIT_CLASS_ENTRY(ce, "pocketmine\\world\\format\\PalettedBlockArray", class_pocketmine_world_format_PalettedBlockArray_methods);
+	INIT_CLASS_ENTRY(ce, "watermossmc\\world\\format\\PalettedBlockArray", class_watermossmc_world_format_PalettedBlockArray_methods);
 	ce.create_object = paletted_block_array_new;
 	ce.serialize = paletted_block_array_serialize;
 	ce.unserialize = paletted_block_array_unserialize;

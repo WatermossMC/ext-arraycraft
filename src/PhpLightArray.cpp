@@ -4,7 +4,7 @@
 
 #include "PhpLightArray.h"
 #include "ZendUtil.h"
-#include "stubs/pocketmine/world/format/LightArray_arginfo.h"
+#include "stubs/watermossmc/world/format/LightArray_arginfo.h"
 
 extern "C" {
 #include "ext/spl/spl_exceptions.h"
@@ -71,7 +71,7 @@ static int light_array_unserialize(zval* obj, zend_class_entry* ce, const unsign
 	return SUCCESS;
 }
 
-#define LIGHT_ARRAY_METHOD(name) PHP_METHOD(pocketmine_world_format_LightArray, name)
+#define LIGHT_ARRAY_METHOD(name) PHP_METHOD(watermossmc_world_format_LightArray, name)
 
 LIGHT_ARRAY_METHOD(__construct) {
 	zend_string* payload;
@@ -174,7 +174,7 @@ void register_light_array_class() {
 	light_array_handlers.clone_obj = light_array_clone;
 
 	zend_class_entry ce;
-	INIT_CLASS_ENTRY(ce, "pocketmine\\world\\format\\LightArray", class_pocketmine_world_format_LightArray_methods);
+	INIT_CLASS_ENTRY(ce, "watermossmc\\world\\format\\LightArray", class_watermossmc_world_format_LightArray_methods);
 	ce.create_object = light_array_new;
 	ce.serialize = light_array_serialize;
 	ce.unserialize = light_array_unserialize;

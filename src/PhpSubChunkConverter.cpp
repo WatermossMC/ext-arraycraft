@@ -3,7 +3,7 @@
 #include "lib/SubChunkConverter.h"
 #include "ZendUtil.h"
 #include "PhpPalettedBlockArrayObj.h"
-#include "stubs/pocketmine/world/format/io/SubChunkConverter_arginfo.h"
+#include "stubs/watermossmc/world/format/io/SubChunkConverter_arginfo.h"
 
 extern "C" {
 #include "php.h"
@@ -16,7 +16,7 @@ static Block flattenData(uint8_t id, uint8_t meta) {
 	return (id << 4) | meta;
 }
 
-#define SUB_CHUNK_CONVERTER_METHOD(name) PHP_METHOD(pocketmine_world_format_io_SubChunkConverter, name)
+#define SUB_CHUNK_CONVERTER_METHOD(name) PHP_METHOD(watermossmc_world_format_io_SubChunkConverter, name)
 
 SUB_CHUNK_CONVERTER_METHOD(convertSubChunkXZY) {
 	zend_string *idArray;
@@ -104,7 +104,7 @@ SUB_CHUNK_CONVERTER_METHOD(__construct) {
 
 void register_sub_chunk_converter_class() {
 	zend_class_entry ce;
-	INIT_CLASS_ENTRY(ce, "pocketmine\\world\\format\\io\\SubChunkConverter", class_pocketmine_world_format_io_SubChunkConverter_methods);
+	INIT_CLASS_ENTRY(ce, "watermossmc\\world\\format\\io\\SubChunkConverter", class_watermossmc_world_format_io_SubChunkConverter_methods);
 	auto registered = zend_register_internal_class(&ce);
 	registered->ce_flags |= ZEND_ACC_FINAL;
 }

@@ -4,7 +4,7 @@
  * @generate-function-entries
  */
 
-namespace pocketmine\world\format;
+namespace watermossmc\world\format;
 
 final class PalettedBlockArray{
 
@@ -13,7 +13,7 @@ final class PalettedBlockArray{
 	/**
 	 * @param int[] $palette
 	 */
-	public static function fromData(int $bitsPerBlock, string $wordArray, array $palette) : \pocketmine\world\format\PalettedBlockArray{}
+	public static function fromData(int $bitsPerBlock, string $wordArray, array $palette) : \watermossmc\world\format\PalettedBlockArray{}
 
 	public function getWordArray() : string{}
 

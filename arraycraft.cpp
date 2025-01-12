@@ -18,27 +18,65 @@
 
 /* $Id$ */
 
-#ifndef PHP_CHUNKUTILS2_H
-#define PHP_CHUNKUTILS2_H
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
 
+#include "src/PhpLightArray.h"
+#include "src/PhpPalettedBlockArray.h"
+#include "src/PhpSubChunkConverter.h"
+
+extern "C" {
 #include "php.h"
+#include "ext/standard/info.h"
+#include "php_arraycraft.h" //this one has to be C always, so the engine can understand it
+}
 
-extern zend_module_entry chunkutils2_module_entry;
-#define phpext_chunkutils2_ptr &chunkutils2_module_entry
+/* {{{ PHP_MINIT_FUNCTION
+ */
+PHP_MINIT_FUNCTION(arraycraft)
+{
+	register_light_array_class();
+	register_paletted_block_array_class();
+	register_sub_chunk_converter_class();
+	return SUCCESS;
+}
+/* }}} */
 
-#define PHP_CHUNKUTILS2_VERSION "0.3.6-dev"
+/* {{{ PHP_MINFO_FUNCTION
+ */
+PHP_MINFO_FUNCTION(arraycraft)
+{
+	php_info_print_table_start();
+	php_info_print_table_header(2, "arraycraft support", "enabled");
+	php_info_print_table_end();
+}
+/* }}} */
 
+/* {{{ arraycraft_module_entry
+ */
+zend_module_entry arraycraft_module_entry = {
+	STANDARD_MODULE_HEADER,
+	"arraycraft",
+	NULL,
+	PHP_MINIT(arraycraft),
+	NULL, /* MSHUTDOWN */
+	NULL, /* RINIT */
+	NULL, /* RSHUTDOWN */
+	PHP_MINFO(arraycraft),
+	PHP_ARRAYCRAFT_VERSION,
+	STANDARD_MODULE_PROPERTIES
+};
+/* }}} */
+
+#ifdef COMPILE_DL_ARRAYCRAFT
+extern "C" {
 #ifdef ZTS
-#include "TSRM.h"
+ZEND_TSRMLS_CACHE_DEFINE()
 #endif
-
-#if defined(ZTS) && defined(COMPILE_DL_CHUNKUTILS2)
-ZEND_TSRMLS_CACHE_EXTERN()
+ZEND_GET_MODULE(arraycraft)
+}
 #endif
-
-
-#endif	/* PHP_CHUNKUTILS2_H */
-
 
 /*
  * Local variables:
