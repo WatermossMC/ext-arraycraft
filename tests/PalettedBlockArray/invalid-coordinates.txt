@@ -5,11 +5,11 @@ To avoid throwing costly exceptions in hot paths, we truncate invalid coordinate
 We can't do nothing about it because it would allow invalid coordinates to cause memory corruption.
 This is the least impactful solution.
 --EXTENSIONS--
-chunkutils2
+arraycraft
 --FILE--
 <?php
 
-namespace pocketmine\world\format;
+namespace watermossmc\world\format;
 
 $p = new PalettedBlockArray(1);
 $p->set(0, 0, 0, 2);

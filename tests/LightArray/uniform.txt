@@ -1,11 +1,11 @@
 --TEST--
 Test that LightArray::isUniform() works correctly
 --SKIPIF--
-<?php if(!extension_loaded('chunkutils2')) die('skip: extension not loaded'); ?>
+<?php if(!extension_loaded('arraycraft')) die('skip: extension not loaded'); ?>
 --FILE--
 <?php declare(strict_types=1);
 
-namespace pocketmine\world\format;
+namespace watermossmc\world\format;
 
 echo "fill 0\n";
 $array = LightArray::fill(0);

@@ -1,11 +1,11 @@
 --TEST--
 Check freshly allocated paletted array is filled with the given initializer
 --SKIPIF--
-<?php if(!extension_loaded("chunkutils2")) die("skip extension not loaded"); ?>
+<?php if(!extension_loaded("arraycraft")) die("skip extension not loaded"); ?>
 --FILE--
 <?php
 const FILL_VALUE = 6;
-$array = new \pocketmine\world\format\PalettedBlockArray(FILL_VALUE);
+$array = new \watermossmc\world\format\PalettedBlockArray(FILL_VALUE);
 
 $checked = 0;
 for($x = 0; $x < 16; ++$x){

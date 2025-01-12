@@ -3,7 +3,7 @@ Test that PalettedBlockArray::setPalette() works as expected
 --FILE--
 <?php
 
-use pocketmine\world\format\PalettedBlockArray;
+use watermossmc\world\format\PalettedBlockArray;
 
 $p1 = new PalettedBlockArray(1);
 $p1->set(0, 0, 0, 2); //now we have 2 entries

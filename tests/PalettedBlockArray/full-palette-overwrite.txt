@@ -1,11 +1,11 @@
 --TEST--
 Palette offsets getting incorrectly overwritten on full palettes
 --SKIPIF--
-<?php if(!extension_loaded("chunkutils2")) die("skip extension not loaded"); ?>
+<?php if(!extension_loaded("arraycraft")) die("skip extension not loaded"); ?>
 --FILE--
 <?php
 
-$p = new \pocketmine\world\format\PalettedBlockArray(9998);
+$p = new \watermossmc\world\format\PalettedBlockArray(9998);
 
 for($i = 0; $i < 4096; ++$i){
 	$p->set($i & 0xf, ($i >> 4) & 0xf, ($i >> 8) & 0xf, $i);

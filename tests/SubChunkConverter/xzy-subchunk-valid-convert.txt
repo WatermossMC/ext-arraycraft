@@ -1,14 +1,14 @@
 --TEST--
 Test conversion of a standard XZY subchunk
 --SKIPIF--
-<?php if(!extension_loaded("chunkutils2")) die("skip extension not loaded"); ?>
+<?php if(!extension_loaded("arraycraft")) die("skip extension not loaded"); ?>
 --FILE--
 <?php
 
 $ids = random_bytes(4096);
 $data = random_bytes(2048);
 
-$t1 = \pocketmine\world\format\io\SubChunkConverter::convertSubChunkXZY($ids, $data);
+$t1 = \watermossmc\world\format\io\SubChunkConverter::convertSubChunkXZY($ids, $data);
 
 $checked = 0;
 for($x = 0; $x < 16; ++$x){

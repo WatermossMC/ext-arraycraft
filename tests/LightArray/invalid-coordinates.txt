@@ -4,11 +4,11 @@ Test that LightArray handles invalid coordinates appropriately
 We don't want to throw exceptions in hot paths, so we truncate invalid coordinates to 4 bits.
 This intentionally produces overflow behaviour, as the least impactful way to avoid memory corruption issues.
 --EXTENSIONS--
-chunkutils2
+arraycraft
 --FILE--
 <?php
 
-namespace pocketmine\world\format;
+namespace watermossmc\world\format;
 
 $p = LightArray::fill(0);
 

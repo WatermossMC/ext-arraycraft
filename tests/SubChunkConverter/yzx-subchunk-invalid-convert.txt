@@ -1,7 +1,7 @@
 --TEST--
-Test handling of bad data in SubChunkConverter::convertSubChunkXZY()
+Test handling of bad data in SubChunkConverter::convertSubChunkYZX()
 --SKIPIF--
-<?php if(!extension_loaded("chunkutils2")) die("skip extension not loaded"); ?>
+<?php if(!extension_loaded("arraycraft")) die("skip extension not loaded"); ?>
 --FILE--
 <?php
 
@@ -18,7 +18,7 @@ foreach($sizes as [$idSize, $dataSize]){
 	$ids = str_repeat("\x00", $idSize);
 	$data = str_repeat("\x00", $dataSize);
 	try{
-		\pocketmine\world\format\io\SubChunkConverter::convertSubChunkXZY($ids, $data);
+		\watermossmc\world\format\io\SubChunkConverter::convertSubChunkYZX($ids, $data);
 	}catch(\LengthException $e){
 		var_dump($e->getMessage());
 	}

@@ -5,11 +5,11 @@ In certain cases (when the palette is not full) it's possible for offsets in the
 For example, a 3 bpb palette can hold up to 8 unique blocks, but if only 7 are used, an `8` appearing in the offset table is bogus and should be reported as corruption.
 This test verifies some known valid and invalid cases to ensure that corruption is detected only where expected.
 --EXTENSIONS--
-chunkutils2
+arraycraft
 --FILE--
 <?php
 
-namespace pocketmine\world\format;
+namespace watermossmc\world\format;
 
 $samples = [
 	[

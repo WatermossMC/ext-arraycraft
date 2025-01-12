@@ -1,15 +1,15 @@
 --TEST--
-Test that LightArray::getData() can be used to produce a new light array equivalent to the original
+Test that LightArray can be serialized and unserialized properly
 --SKIPIF--
-<?php if(!extension_loaded('chunkutils2')) die('skip: extension not loaded'); ?>
+<?php if(!extension_loaded('arraycraft')) die('skip: extension not loaded'); ?>
 --FILE--
 <?php declare(strict_types=1);
 
-namespace pocketmine\world\format;
+namespace watermossmc\world\format;
 
 $array = new LightArray(random_bytes(2048));
 
-$array2 = new LightArray($array->getData());
+$array2 = unserialize(serialize($array));
 
 $checked = 0;
 for($x = 0; $x < 16; ++$x){

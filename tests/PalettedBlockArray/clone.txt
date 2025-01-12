@@ -1,13 +1,13 @@
 --TEST--
 Test that PalettedBlockArray works correctly after cloning
 --SKIPIF--
-<?php if(!extension_loaded("chunkutils2")) die("skip extension not loaded"); ?>
+<?php if(!extension_loaded("arraycraft")) die("skip extension not loaded"); ?>
 --FILE--
 <?php
 
 error_reporting(E_ALL & ~E_DEPRECATED); //dynamic property deprecation warning
 
-$p1 = new \pocketmine\world\format\PalettedBlockArray(1);
+$p1 = new \watermossmc\world\format\PalettedBlockArray(1);
 var_dump($p1->get(0, 0, 0));
 $p1->test = "hi";
 
